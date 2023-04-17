@@ -22,8 +22,10 @@ import {
   useColorScheme,
 } from 'react-native';
 
+import {JSONobject} from './client/src/components/JSONobject';
 import type {PropsWithChildren} from 'react';
 import React from 'react';
+import axios from 'axios';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -57,7 +59,6 @@ function Section({children, title}: SectionProps): JSX.Element {
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -76,10 +77,8 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          <Section title="Step One">pokemon</Section>
+          <JSONobject />
         </View>
       </ScrollView>
     </SafeAreaView>
