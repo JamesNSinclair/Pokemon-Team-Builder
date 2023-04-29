@@ -1,7 +1,6 @@
+import {Image, ScrollView, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
 
-import ModalSelector from 'react-native-modal-selector';
 import {TeamPicker} from './TeamPicker';
 import axios from 'axios';
 
@@ -13,7 +12,7 @@ interface Pokemon {
   type_2: string | null;
 }
 
-export const JSONobject = () => {
+export const TeamBuilder = () => {
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
 
@@ -22,6 +21,7 @@ export const JSONobject = () => {
     axios
       .get('http://localhost:3000/pokemon')
       .then(res => {
+        console.log('this is the resdata', res.data.rows);
         setPokemon(res.data.rows);
       })
       .catch(error => console.error(error));
@@ -33,15 +33,30 @@ export const JSONobject = () => {
 
   return (
     pokemon && (
-      <View>
-        <Text>Hello</Text>
+      <ScrollView
+        style={{height: '100%', marginTop: 70, paddingHorizontal: 20}}>
         <TeamPicker pokemon={pokemon} />
         <TeamPicker pokemon={pokemon} />
         <TeamPicker pokemon={pokemon} />
         <TeamPicker pokemon={pokemon} />
         <TeamPicker pokemon={pokemon} />
         <TeamPicker pokemon={pokemon} />
-      </View>
+        <View
+          style={{
+            width: '100%',
+            marginTop: 20,
+            alignItems: 'center',
+          }}>
+          <Image
+            source={require('../assets/images/go-arrow.png')}
+            style={{
+              height: 90,
+              width: 90,
+              opacity: 0.6,
+            }}
+          />
+        </View>
+      </ScrollView>
     )
   );
 };
