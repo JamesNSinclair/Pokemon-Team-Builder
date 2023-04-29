@@ -1,29 +1,10 @@
-import {
-  ImageBackground,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {AppNavigator} from './client/src/AppNavigator';
 import React from 'react';
-import {TeamBuilder} from './client/src/components/TeamBuilder';
-import fireStarterBackground from './client/src/assets/images/fire-starter-background.png';
+import {StyleSheet} from 'react-native';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <ImageBackground source={fireStarterBackground} style={styles.container}>
-      <SafeAreaView>
-        <TeamBuilder />
-      </SafeAreaView>
-    </ImageBackground>
-  );
+  return <AppNavigator />;
+  //Need broken/error page incase app navigator does not work
 }
 
 const styles = StyleSheet.create({

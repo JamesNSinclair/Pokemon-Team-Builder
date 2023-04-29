@@ -82,7 +82,7 @@ export const TeamPicker = ({pokemon}: {pokemon: Pokemon[]}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 15,
+
     marginTop: 15,
   },
   input: {
