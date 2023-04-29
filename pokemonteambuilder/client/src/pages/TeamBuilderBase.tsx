@@ -32,7 +32,7 @@ export const TeamBuilderBase = () => {
             fontWeight: '600',
             textAlign: 'center',
           }}>
-          Team Match Ups:
+          Pokemon Team Builder
         </Text>
         <TeamBuilder />
         <View
