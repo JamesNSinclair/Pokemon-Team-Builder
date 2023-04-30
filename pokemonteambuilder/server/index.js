@@ -1,7 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const pokemonRoutes = require('./routes/pokemonRoute.ts');
-const router = express.Router();
+
 const app = express();
+
+app.use(bodyParser.json());
+
 app.use('/', pokemonRoutes);
 
 app.listen(3000, () => {
