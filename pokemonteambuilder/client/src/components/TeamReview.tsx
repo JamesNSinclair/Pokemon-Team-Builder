@@ -22,27 +22,11 @@ export interface MergedTypeEffectiveness {
   typeValue: number;
 }
 
-export const TeamReview = () => {
-  const [teamEffectiveness, setTeamEffectiveness] = useState<
-    MergedTypeEffectiveness[]
-  >([]);
-  const userTeam = useSelector((state: any) => state.team);
-  useEffect(() => {
-    let result: MergedTypeEffectiveness[] = [];
-    userTeam.forEach((pokemon: Pokemon) => {
-      Object.entries(pokemon.typeEffectiveness).forEach(
-        ([typeName, typeValue]: [string, number]) => {
-          const existingType = result.find(t => t.typeName === typeName);
-          if (!existingType) {
-            result.push({typeName, typeValue});
-          } else {
-            existingType.typeValue *= typeValue;
-          }
-        },
-      );
-    });
-    setTeamEffectiveness(result);
-  }, [userTeam]);
+interface IProps {
+  teamEffectiveness: MergedTypeEffectiveness[];
+}
+
+export const TeamReview = ({teamEffectiveness}: IProps) => {
   return (
     <View style={styles.container}>
       {teamEffectiveness.map((type, i) => {

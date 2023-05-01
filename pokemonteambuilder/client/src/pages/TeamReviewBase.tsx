@@ -24,6 +24,7 @@ interface Pokemon {
   name: string;
   position: number;
   typeEffectiveness: TypeEffectiveness;
+  pokemonBackgroundColor: string;
 }
 
 export interface MergedTypeEffectiveness {
@@ -84,9 +85,17 @@ export const TeamReviewBase = () => {
           </Text>
           <TeamReview teamEffectiveness={teamEffectiveness} />
         </ScrollView>
+        <Text style={{paddingTop: 25, fontSize: 21, fontWeight: '500'}}>
+          Team Match Ups:
+        </Text>
         <View style={styles.teamContainer}>
           {userTeam.map((p: Pokemon) => {
-            return <MyTeam pokeId={p.id} />;
+            return (
+              <MyTeam
+                pokemonBackgroundColor={p.pokemonBackgroundColor}
+                pokeId={p.id}
+              />
+            );
           })}
         </View>
       </SafeAreaView>
@@ -98,7 +107,6 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     paddingHorizontal: 40,
-    backgroundColor: 'blue',
     flex: 1,
     resizeMode: 'cover',
   },
@@ -106,6 +114,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     right: 25,
-    top: 25,
+    paddingTop: 5,
   },
 });

@@ -45,6 +45,7 @@ export const TeamPicker = ({
       name: pokemon.name,
       position: position,
       typeEffectiveness: await pokemonTypeEffectiveness,
+      pokemonBackgroundColor: '#fff',
     };
     dispatch(updateTeamData(pokemonWithState));
   };

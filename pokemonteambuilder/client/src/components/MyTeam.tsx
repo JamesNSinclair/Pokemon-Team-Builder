@@ -5,15 +5,17 @@ import {getPokemonSpritePath} from '../types/imageUrls';
 
 interface IProps {
   pokeId: number;
+  pokemonBackgroundColor: string;
 }
 
-export const MyTeam = ({pokeId}: IProps) => {
+export const MyTeam = ({pokeId, pokemonBackgroundColor}: IProps) => {
+  console.log('pokemonBackgroundColor', pokemonBackgroundColor);
   const pokemonSprite = getPokemonSpritePath(pokeId);
 
   return (
     <View
       style={{
-        backgroundColor: 'pink',
+        backgroundColor: pokemonBackgroundColor,
         position: 'relative',
         borderRadius: 50,
         width: 70,
