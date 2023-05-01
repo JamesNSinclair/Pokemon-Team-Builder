@@ -3,14 +3,15 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 interface IProps {
-  type: string;
+  typeValue: number;
+  typeName: string;
 }
 
-export const TypeEvaluation = ({type}: IProps) => {
+export const TypeEvaluation = ({typeValue, typeName}: IProps) => {
   return (
     <View style={styles.container}>
-      <Text>x3</Text>
-      <Text style={{fontSize: 16}}>{type}</Text>
+      <Text>{typeValue}</Text>
+      <Text style={{fontSize: 16}}>{typeName}</Text>
     </View>
   );
 };

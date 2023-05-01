@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import {TeamPicker} from './TeamPicker';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import axios from 'axios';
+import {fetchPokemonData} from '../services/api';
 import {useNavigation} from '@react-navigation/native';
 
 interface Pokemon {
@@ -15,28 +16,29 @@ interface Pokemon {
 }
 
 export const TeamBuilder = () => {
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
-  const navigation = useNavigation();
+
   useEffect(() => {
-    // Make an API call to fetch the options
-    axios
-      .get('http://localhost:3000/pokemon')
-      .then(res => {
-        setPokemon(res.data.rows);
-      })
-      .catch(error => console.error(error));
+    const fetchPokemon = async () => {
+      try {
+        const pokemonData = await fetchPokemonData();
+        setPokemon(pokemonData);
+      } catch (error) {
+        console.error('Error fetching all Pokémon:', error);
+      }
+    };
+    fetchPokemon();
   }, []);
 
   return (
-    pokemon && (
+    pokemon.length > 0 && (
       <ScrollView style={{marginTop: 15}}>
-        <TeamPicker pokemon={pokemon} />
-        <TeamPicker pokemon={pokemon} />
-        <TeamPicker pokemon={pokemon} />
-        <TeamPicker pokemon={pokemon} />
-        <TeamPicker pokemon={pokemon} />
-        <TeamPicker pokemon={pokemon} />
+        <TeamPicker position={1} pokemon={pokemon} />
+        <TeamPicker position={2} pokemon={pokemon} />
+        <TeamPicker position={3} pokemon={pokemon} />
+        <TeamPicker position={4} pokemon={pokemon} />
+        <TeamPicker position={5} pokemon={pokemon} />
+        <TeamPicker position={6} pokemon={pokemon} />
       </ScrollView>
     )
   );

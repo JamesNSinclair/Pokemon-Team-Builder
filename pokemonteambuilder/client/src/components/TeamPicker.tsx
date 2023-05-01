@@ -8,6 +8,10 @@ import {
   View,
 } from 'react-native';
 
+import {fetchPokemonTypeEffectiveness} from '../services/api';
+import {updateTeamData} from '../state/slices/teamSlice';
+import {useDispatch} from 'react-redux';
+
 interface Pokemon {
   dex_number: number;
   id: number;
@@ -16,20 +20,37 @@ interface Pokemon {
   type_2: string | null;
 }
 
-export const TeamPicker = ({pokemon}: {pokemon: Pokemon[]}) => {
+export const TeamPicker = ({
+  position,
+  pokemon,
+}: {
+  position: number;
+  pokemon: Pokemon[];
+}) => {
   const [inputText, setInputText] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState<string | null>(null);
-
+  const dispatch = useDispatch();
   const onInputChange = (text: string) => {
     setInputText(text);
     setShowSuggestions(true);
   };
 
-  const onPokemonSelect = (name: string) => {
+  const addPokemonToTeam = async (name: string) => {
+    const pokemonTypeEffectiveness = await fetchPokemonTypeEffectiveness(name);
+    const pokemonWithState = {
+      name: name,
+      position: position,
+      typeEffectiveness: await pokemonTypeEffectiveness,
+    };
+    dispatch(updateTeamData(pokemonWithState));
+  };
+
+  const onPokemonSelect = async (name: string) => {
     setInputText(name);
     setSelectedPokemon(name);
     setShowSuggestions(false);
+    addPokemonToTeam(name);
   };
 
   const filteredPokemon = pokemon.filter(p =>
