@@ -36,21 +36,24 @@ export const TeamPicker = ({
     setShowSuggestions(true);
   };
 
-  const addPokemonToTeam = async (name: string) => {
-    const pokemonTypeEffectiveness = await fetchPokemonTypeEffectiveness(name);
+  const addPokemonToTeam = async (pokemon: Pokemon) => {
+    const pokemonTypeEffectiveness = await fetchPokemonTypeEffectiveness(
+      pokemon.name,
+    );
     const pokemonWithState = {
-      name: name,
+      id: pokemon.id,
+      name: pokemon.name,
       position: position,
       typeEffectiveness: await pokemonTypeEffectiveness,
     };
     dispatch(updateTeamData(pokemonWithState));
   };
 
-  const onPokemonSelect = async (name: string) => {
-    setInputText(name);
-    setSelectedPokemon(name);
+  const onPokemonSelect = async (pokemon: Pokemon) => {
+    setInputText(pokemon.name);
+    setSelectedPokemon(pokemon.name);
     setShowSuggestions(false);
-    addPokemonToTeam(name);
+    addPokemonToTeam(pokemon);
   };
 
   const filteredPokemon = pokemon.filter(p =>
@@ -81,7 +84,7 @@ export const TeamPicker = ({
                     ? styles.selectedSuggestionItem
                     : null,
                 ]}
-                onPress={() => onPokemonSelect(p.name)}
+                onPress={() => onPokemonSelect(p)}
                 activeOpacity={1}>
                 <Text
                   style={

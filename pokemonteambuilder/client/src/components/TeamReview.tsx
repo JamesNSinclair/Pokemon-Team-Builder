@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 
+import {MyTeam} from './MyTeam';
 import {TypeEvaluation} from './TypeEvaluation';
 import pokemonTypes from '../types/pokemonTypes';
 import {useSelector} from 'react-redux';
@@ -10,6 +11,7 @@ interface TypeEffectiveness {
 }
 
 interface Pokemon {
+  id: number;
   name: string;
   position: number;
   typeEffectiveness: TypeEffectiveness;
@@ -39,10 +41,8 @@ export const TeamReview = () => {
         },
       );
     });
-    console.log('this is it here =========', result);
     setTeamEffectiveness(result);
   }, [userTeam]);
-  console.log('this is it teamEffectiveness =========', teamEffectiveness);
   return (
     <View style={styles.container}>
       {teamEffectiveness.map((type, i) => {
@@ -53,6 +53,9 @@ export const TeamReview = () => {
             typeValue={type.typeValue}
           />
         );
+      })}
+      {userTeam.map((p: Pokemon) => {
+        return <MyTeam pokeId={p.id} />;
       })}
     </View>
   );

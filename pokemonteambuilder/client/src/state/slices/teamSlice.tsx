@@ -7,6 +7,7 @@ interface TypeEffectiveness {
 
 interface Pokemon {
   name: string;
+  id: number;
   position: number;
   typeEffectiveness: TypeEffectiveness;
 }
@@ -18,7 +19,7 @@ const teamSlice = createSlice({
   initialState,
   reducers: {
     updateTeamData: (state, action) => {
-      const {position, name, typeEffectiveness} = action.payload;
+      const {id, position, name, typeEffectiveness} = action.payload;
 
       // Find the index of the Pokemon with the same position
       const pokemonToUpdateIndex = state.findIndex(
@@ -28,6 +29,7 @@ const teamSlice = createSlice({
       if (pokemonToUpdateIndex !== -1) {
         // Replace the old Pokemon object with the new one
         state[pokemonToUpdateIndex] = {
+          id: id,
           name: name,
           position: position,
           typeEffectiveness: typeEffectiveness,
@@ -35,6 +37,7 @@ const teamSlice = createSlice({
       } else {
         // Add the new Pokemon object to the state if the position does not exist
         state.push({
+          id: id,
           name: name,
           position: position,
           typeEffectiveness: typeEffectiveness,
