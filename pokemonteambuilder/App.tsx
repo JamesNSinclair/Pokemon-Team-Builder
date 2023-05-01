@@ -13,11 +13,4 @@ function App(): JSX.Element {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-});
-
 export default App;

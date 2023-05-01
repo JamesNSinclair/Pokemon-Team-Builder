@@ -54,9 +54,6 @@ export const TeamReview = () => {
           />
         );
       })}
-      {userTeam.map((p: Pokemon) => {
-        return <MyTeam pokeId={p.id} />;
-      })}
     </View>
   );
 };
@@ -67,5 +64,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
+    overflow: 'visible',
   },
 });
