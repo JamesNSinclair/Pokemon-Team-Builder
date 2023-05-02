@@ -1,10 +1,7 @@
-// src/redux/slices/teamSlice.js
 import {createSlice} from '@reduxjs/toolkit';
-
 interface TypeEffectiveness {
   [key: string]: number;
 }
-
 interface Pokemon {
   name: string;
   id: number;

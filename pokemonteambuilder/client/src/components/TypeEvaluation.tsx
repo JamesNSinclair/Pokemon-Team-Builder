@@ -12,7 +12,6 @@ interface IProps {
 export const TypeEvaluation = ({typeValue, typeName}: IProps) => {
   const dispatch = useDispatch();
   const handlePress = () => {
-    console.log('this is number 1=========');
     dispatch(updatePokemonBackgrounds(typeName));
   };
   return (
@@ -20,11 +19,15 @@ export const TypeEvaluation = ({typeValue, typeName}: IProps) => {
       <View style={styles.container}>
         <Text
           style={
-            typeValue !== 1 && (typeValue > 1 ? styles.strong : styles.weak)
+            typeValue !== 1
+              ? typeValue > 1
+                ? styles.strong
+                : styles.weak
+              : null
           }>
           {typeValue}
         </Text>
-        <Text style={{fontSize: 16}}>{typeName}</Text>
+        <Text style={styles.typeName}>{typeName}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -43,5 +46,8 @@ const styles = StyleSheet.create({
   weak: {
     color: 'green',
     fontWeight: '600',
+  },
+  typeName: {
+    fontSize: 16,
   },
 });

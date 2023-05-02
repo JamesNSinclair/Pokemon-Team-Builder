@@ -62,32 +62,19 @@ export const TeamReviewBase = () => {
       source={require('../assets/images/water-starter-background.png')}
       style={styles.container}>
       <SafeAreaView>
-        <View
-          style={{
-            width: '100%',
-            marginTop: 20,
-            alignItems: 'flex-start',
-          }}>
+        <View style={styles.topView}>
           <TouchableWithoutFeedback onPress={handleProceedBtn}>
             <Image
               source={require('../assets/images/back-arrow.png')}
-              style={{
-                height: 35,
-                width: 35,
-                opacity: 0.9,
-              }}
+              style={styles.backArrow}
             />
           </TouchableWithoutFeedback>
         </View>
         <ScrollView>
-          <Text style={{paddingTop: 25, fontSize: 30, fontWeight: '600'}}>
-            Team Match Ups:
-          </Text>
+          <Text style={styles.matchUpsTitle}>Team Match Ups:</Text>
           <TeamReview teamEffectiveness={teamEffectiveness} />
         </ScrollView>
-        <Text style={{paddingTop: 25, fontSize: 21, fontWeight: '500'}}>
-          Team Match Ups:
-        </Text>
+        <Text style={styles.matchUpsSubtitle}>Team Match Ups:</Text>
         <View style={styles.teamContainer}>
           {userTeam.map((p: Pokemon) => {
             return (
@@ -109,6 +96,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     flex: 1,
     resizeMode: 'cover',
+  },
+  topView: {
+    width: '100%',
+    marginTop: 20,
+    alignItems: 'flex-start',
+  },
+  backArrow: {
+    height: 35,
+    width: 35,
+    opacity: 0.9,
+  },
+  matchUpsTitle: {
+    paddingTop: 25,
+    fontSize: 30,
+    fontWeight: '600',
+  },
+  matchUpsSubtitle: {
+    paddingTop: 25,
+    fontSize: 21,
+    fontWeight: '500',
   },
   teamContainer: {
     flexDirection: 'row',

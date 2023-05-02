@@ -1,11 +1,8 @@
-import {Image, ScrollView, Text, Touchable, View} from 'react-native';
+import {Image, ScrollView} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
 import {TeamPicker} from './TeamPicker';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import axios from 'axios';
 import {fetchPokemonData} from '../services/api';
-import {useNavigation} from '@react-navigation/native';
 
 interface Pokemon {
   dex_number: number;
