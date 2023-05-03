@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "start:server": "cd ./server && node index.js"
+    "start:server": "cd ./server && node index.js",
+    "launchDB": "dropdb -h localhost -U postgres --if-exists pokemon_db && createdb -h localhost -U postgres pokemon_db && node server/create-database.js && sh server/seed-data.sh"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
