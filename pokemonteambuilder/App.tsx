@@ -3,7 +3,7 @@ import {AppNavigator} from './client/src/AppNavigator';
 import {Provider} from 'react-redux';
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import store from './client/src/state/store'; // Replace with the path to your store configuration file
+import store from './client/src/state/store';
 
 function App(): JSX.Element {
   return (
