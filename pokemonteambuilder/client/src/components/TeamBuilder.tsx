@@ -27,16 +27,16 @@ export const TeamBuilder = () => {
     fetchPokemon();
   }, []);
 
-  return (
-    pokemon.length > 0 && (
-      <ScrollView style={{marginTop: 15}}>
-        <TeamPicker position={1} pokemon={pokemon} />
-        <TeamPicker position={2} pokemon={pokemon} />
-        <TeamPicker position={3} pokemon={pokemon} />
-        <TeamPicker position={4} pokemon={pokemon} />
-        <TeamPicker position={5} pokemon={pokemon} />
-        <TeamPicker position={6} pokemon={pokemon} />
-      </ScrollView>
-    )
+  return pokemon.length > 0 ? (
+    <ScrollView style={{marginTop: 15}}>
+      <TeamPicker position={1} pokemon={pokemon} />
+      <TeamPicker position={2} pokemon={pokemon} />
+      <TeamPicker position={3} pokemon={pokemon} />
+      <TeamPicker position={4} pokemon={pokemon} />
+      <TeamPicker position={5} pokemon={pokemon} />
+      <TeamPicker position={6} pokemon={pokemon} />
+    </ScrollView>
+  ) : (
+    <></>
   );
 };

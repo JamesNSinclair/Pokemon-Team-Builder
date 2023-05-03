@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   ScrollView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -9,6 +8,7 @@ import {
 } from 'react-native';
 
 import {fetchPokemonTypeEffectiveness} from '../services/api';
+import styles from '../styles/index';
 import {updateTeamData} from '../state/slices/teamSlice';
 import {useDispatch} from 'react-redux';
 
@@ -62,9 +62,9 @@ export const TeamPicker = ({
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.teamPicker.container}>
       <TextInput
-        style={styles.input}
+        style={styles.teamPicker.input}
         value={inputText}
         onChangeText={onInputChange}
         onFocus={() => setShowSuggestions(true)}
@@ -72,17 +72,17 @@ export const TeamPicker = ({
         placeholder="Type Pokémon name"
       />
       {inputText && showSuggestions ? (
-        <View style={styles.suggestionsContainer}>
+        <View style={styles.teamPicker.suggestionsContainer}>
           <ScrollView
-            style={styles.suggestions}
+            style={styles.teamPicker.suggestions}
             keyboardShouldPersistTaps="handled">
             {filteredPokemon.map(p => (
               <TouchableOpacity
                 key={p.id}
                 style={[
-                  styles.suggestionItem,
+                  styles.teamPicker.suggestionItem,
                   p.name === selectedPokemon
-                    ? styles.selectedSuggestionItem
+                    ? styles.teamPicker.selectedSuggestionItem
                     : null,
                 ]}
                 onPress={() => onPokemonSelect(p)}
@@ -90,7 +90,7 @@ export const TeamPicker = ({
                 <Text
                   style={
                     p.name === selectedPokemon
-                      ? styles.selectedSuggestionText
+                      ? styles.teamPicker.selectedSuggestionText
                       : null
                   }>
                   {p.name}
@@ -103,38 +103,3 @@ export const TeamPicker = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-
-    marginTop: 15,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    borderWidth: 1,
-    paddingLeft: 10,
-  },
-  suggestionsContainer: {
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderTopWidth: 0,
-  },
-  suggestions: {
-    maxHeight: 200,
-  },
-  suggestionItem: {
-    padding: 10,
-    backgroundColor: '#f8f8f8',
-    borderBottomWidth: 1,
-    borderColor: '#eee',
-  },
-  selectedSuggestionItem: {
-    backgroundColor: '#f8f8f8',
-  },
-  selectedSuggestionText: {
-    textDecorationLine: 'underline',
-  },
-});

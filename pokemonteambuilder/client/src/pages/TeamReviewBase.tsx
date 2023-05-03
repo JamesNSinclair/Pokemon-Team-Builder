@@ -2,7 +2,6 @@ import {
   Image,
   ImageBackground,
   SafeAreaView,
-  StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -12,6 +11,7 @@ import React, {useEffect, useState} from 'react';
 import {MyTeam} from '../components/MyTeam';
 import {ScrollView} from 'react-native-gesture-handler';
 import {TeamReview} from '../components/TeamReview';
+import styles from '../styles/index';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
@@ -60,22 +60,22 @@ export const TeamReviewBase = () => {
   return (
     <ImageBackground
       source={require('../assets/images/water-starter-background.png')}
-      style={styles.container}>
+      style={styles.reviewBase.container}>
       <SafeAreaView>
-        <View style={styles.topView}>
+        <View style={styles.reviewBase.topView}>
           <TouchableWithoutFeedback onPress={handleProceedBtn}>
             <Image
               source={require('../assets/images/back-arrow.png')}
-              style={styles.backArrow}
+              style={styles.reviewBase.backArrow}
             />
           </TouchableWithoutFeedback>
         </View>
         <ScrollView>
-          <Text style={styles.matchUpsTitle}>Team Match Ups:</Text>
+          <Text style={styles.reviewBase.matchUpsTitle}>Team Match Ups:</Text>
           <TeamReview teamEffectiveness={teamEffectiveness} />
         </ScrollView>
-        <Text style={styles.matchUpsSubtitle}>Team Match Ups:</Text>
-        <View style={styles.teamContainer}>
+        <Text style={styles.reviewBase.matchUpsSubtitle}>Team Match Ups:</Text>
+        <View style={styles.reviewBase.teamContainer}>
           {userTeam.map((p: Pokemon) => {
             return (
               <MyTeam
@@ -89,38 +89,3 @@ export const TeamReviewBase = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    paddingHorizontal: 40,
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  topView: {
-    width: '100%',
-    marginTop: 20,
-    alignItems: 'flex-start',
-  },
-  backArrow: {
-    height: 35,
-    width: 35,
-    opacity: 0.9,
-  },
-  matchUpsTitle: {
-    paddingTop: 25,
-    fontSize: 30,
-    fontWeight: '600',
-  },
-  matchUpsSubtitle: {
-    paddingTop: 25,
-    fontSize: 21,
-    fontWeight: '500',
-  },
-  teamContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    right: 25,
-    paddingTop: 5,
-  },
-});

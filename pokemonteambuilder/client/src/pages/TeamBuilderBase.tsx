@@ -1,18 +1,9 @@
-import {
-  Image,
-  ImageBackground,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {
-  ScrollView,
-  TouchableWithoutFeedback,
-} from 'react-native-gesture-handler';
+import {Image, ImageBackground, SafeAreaView, Text, View} from 'react-native';
 
 import React from 'react';
 import {TeamBuilder} from '../components/TeamBuilder';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import styles from '../styles/index';
 import {useNavigation} from '@react-navigation/native';
 
 export const TeamBuilderBase = () => {
@@ -23,15 +14,15 @@ export const TeamBuilderBase = () => {
   return (
     <ImageBackground
       source={require('../assets/images/fire-starter-background.png')}
-      style={styles.container}>
+      style={styles.builderBase.container}>
       <SafeAreaView>
-        <Text style={styles.title}>Pokemon Team Builder</Text>
+        <Text style={styles.builderBase.title}>Pokemon Team Builder</Text>
         <TeamBuilder />
-        <View style={styles.proceedBtnContainer}>
+        <View style={styles.builderBase.proceedBtnContainer}>
           <TouchableWithoutFeedback onPress={handleProceedBtn}>
             <Image
               source={require('../assets/images/go-arrow.png')}
-              style={styles.proceedBtnImage}
+              style={styles.builderBase.proceedBtnImage}
             />
           </TouchableWithoutFeedback>
         </View>
@@ -39,27 +30,3 @@ export const TeamBuilderBase = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 35,
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  title: {
-    paddingTop: 60,
-    fontSize: 30,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  proceedBtnContainer: {
-    width: '100%',
-    marginTop: 20,
-    alignItems: 'center',
-  },
-  proceedBtnImage: {
-    height: 90,
-    width: 90,
-    opacity: 0.6,
-  },
-});
