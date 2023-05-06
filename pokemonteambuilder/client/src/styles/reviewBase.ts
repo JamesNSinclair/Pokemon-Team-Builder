@@ -19,13 +19,17 @@ export default StyleSheet.create({
   },
   matchUpsTitle: {
     paddingTop: 25,
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: '600',
+    color: 'rgba(41, 50, 60, 0.9)',
+    fontFamily: 'PressStart2P-Regular',
   },
   matchUpsSubtitle: {
     paddingTop: 25,
-    fontSize: 21,
-    fontWeight: '500',
+    fontSize: 19,
+    color: 'rgba(41, 50, 60, 0.9)',
+    fontWeight: '400',
+    fontFamily: 'PressStart2P-Regular',
   },
   teamContainer: {
     flexDirection: 'row',

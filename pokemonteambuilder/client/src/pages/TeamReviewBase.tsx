@@ -12,6 +12,8 @@ import {MyTeam} from '../components/MyTeam';
 import {ScrollView} from 'react-native-gesture-handler';
 import {TeamReview} from '../components/TeamReview';
 import styles from '../styles/index';
+import {updatePokemonBackgrounds} from '../state/slices/teamSlice';
+import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
@@ -33,9 +35,13 @@ export interface MergedTypeEffectiveness {
 }
 
 export const TeamReviewBase = () => {
+  const [typeSelected, setTypeSelected] = useState(null);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const handleProceedBtn = () => {
     navigation.navigate('TeamBuilder');
+    setTypeSelected(null);
+    dispatch(updatePokemonBackgrounds(undefined));
   };
   const [teamEffectiveness, setTeamEffectiveness] = useState<
     MergedTypeEffectiveness[]
@@ -71,10 +77,14 @@ export const TeamReviewBase = () => {
           </TouchableWithoutFeedback>
         </View>
         <ScrollView>
-          <Text style={styles.reviewBase.matchUpsTitle}>Team Match Ups:</Text>
-          <TeamReview teamEffectiveness={teamEffectiveness} />
+          <Text style={styles.reviewBase.matchUpsTitle}>Results:</Text>
+          <TeamReview
+            typeSelected={typeSelected}
+            setTypeSelected={setTypeSelected}
+            teamEffectiveness={teamEffectiveness}
+          />
         </ScrollView>
-        <Text style={styles.reviewBase.matchUpsSubtitle}>Team Match Ups:</Text>
+        <Text style={styles.reviewBase.matchUpsSubtitle}>My Team:</Text>
         <View style={styles.reviewBase.teamContainer}>
           {userTeam.map((p: Pokemon) => {
             return (

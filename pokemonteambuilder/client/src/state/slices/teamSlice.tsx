@@ -50,7 +50,7 @@ const teamSlice = createSlice({
       state.forEach(pokemon => {
         const typeEffectiveness = pokemon.typeEffectiveness[type];
         if (typeEffectiveness === undefined) {
-          return;
+          pokemon.pokemonBackgroundColor = 'rgba(255, 255, 255, 0.8)';
         }
         if (typeEffectiveness < 1) {
           pokemon.pokemonBackgroundColor = 'rgba(139, 199, 154, 0.9)';

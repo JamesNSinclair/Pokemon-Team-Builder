@@ -5,8 +5,10 @@ import {TeamBuilder} from '../components/TeamBuilder';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import styles from '../styles/index';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 export const TeamBuilderBase = () => {
+  const userTeam = useSelector((state: any) => state.team);
   const navigation = useNavigation();
   const handleProceedBtn = () => {
     navigation.navigate('TeamReview');
@@ -18,14 +20,14 @@ export const TeamBuilderBase = () => {
       <SafeAreaView>
         <Text style={styles.builderBase.title}>Pokemon Team Builder</Text>
         <TeamBuilder />
-        <View style={styles.builderBase.proceedBtnContainer}>
-          <TouchableWithoutFeedback onPress={handleProceedBtn}>
-            <Image
-              source={require('../assets/images/go-arrow.png')}
-              style={styles.builderBase.proceedBtnImage}
-            />
+
+        {userTeam.length > 0 && (
+          <TouchableWithoutFeedback
+            style={styles.buttons.container}
+            onPress={handleProceedBtn}>
+            <Text style={styles.buttons.text}>Proceed</Text>
           </TouchableWithoutFeedback>
-        </View>
+        )}
       </SafeAreaView>
     </ImageBackground>
   );

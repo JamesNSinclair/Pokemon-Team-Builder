@@ -11,6 +11,11 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: '600',
     textAlign: 'center',
+    color: '#B30000',
+    fontFamily: 'PressStart2P-Regular',
+    textShadowColor: 'beige',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 5,
   },
   proceedBtnContainer: {
     width: '100%',
@@ -18,8 +23,9 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   proceedBtnImage: {
-    height: 90,
-    width: 90,
-    opacity: 0.6,
+    height: 110,
+    width: 110,
+    marginTop: 5,
+    opacity: 0.8,
   },
 });

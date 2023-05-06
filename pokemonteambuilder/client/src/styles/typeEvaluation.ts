@@ -17,4 +17,7 @@ export default StyleSheet.create({
   typeName: {
     fontSize: 16,
   },
+  underlined: {
+    fontWeight: '800',
+  },
 });
