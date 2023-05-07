@@ -40,12 +40,12 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pokemonteambuilder/main.m; sourceTree = "<group>"; };
 		21A92FC70553AECA5F68401A /* Pods-pokemonteambuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonteambuilder.release.xcconfig"; path = "Target Support Files/Pods-pokemonteambuilder/Pods-pokemonteambuilder.release.xcconfig"; sourceTree = "<group>"; };
 		2C0DE965AD967DD17A74B829 /* Pods-pokemonteambuilder-pokemonteambuilderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonteambuilder-pokemonteambuilderTests.debug.xcconfig"; path = "Target Support Files/Pods-pokemonteambuilder-pokemonteambuilderTests/Pods-pokemonteambuilder-pokemonteambuilderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		52C1D861BDFC4566A5ED18A2 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PressStart2P-Regular.ttf"; path = "../client/src/assets/fonts/PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pokemonteambuilder/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C801800C2486FE42993B97D1 /* Pods-pokemonteambuilder-pokemonteambuilderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonteambuilder-pokemonteambuilderTests.release.xcconfig"; path = "Target Support Files/Pods-pokemonteambuilder-pokemonteambuilderTests/Pods-pokemonteambuilder-pokemonteambuilderTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9B26CA10D07973918003602 /* Pods-pokemonteambuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonteambuilder.debug.xcconfig"; path = "Target Support Files/Pods-pokemonteambuilder/Pods-pokemonteambuilder.debug.xcconfig"; sourceTree = "<group>"; };
 		EBED0287D079713A4976CA61 /* libPods-pokemonteambuilder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokemonteambuilder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		52C1D861BDFC4566A5ED18A2 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; name = "PressStart2P-Regular.ttf"; path = "../client/src/assets/fonts/PressStart2P-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +152,13 @@
 			sourceTree = "<group>";
 		};
 		D900963D77EC485296EB9097 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				52C1D861BDFC4566A5ED18A2 /* PressStart2P-Regular.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

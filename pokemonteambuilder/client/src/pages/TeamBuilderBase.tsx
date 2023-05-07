@@ -13,6 +13,9 @@ export const TeamBuilderBase = () => {
   const handleProceedBtn = () => {
     navigation.navigate('TeamReview');
   };
+  const handleLoadSaveTeamBtn = () => {
+    navigation.navigate('SavedTeams');
+  };
   return (
     <ImageBackground
       source={require('../assets/images/fire-starter-background.png')}
@@ -20,7 +23,11 @@ export const TeamBuilderBase = () => {
       <SafeAreaView>
         <Text style={styles.builderBase.title}>Pokemon Team Builder</Text>
         <TeamBuilder />
-
+        <TouchableWithoutFeedback onPress={handleLoadSaveTeamBtn}>
+          <Text style={styles.builderBase.subButtonText}>
+            Load Team/Save Team
+          </Text>
+        </TouchableWithoutFeedback>
         {userTeam.length > 0 && (
           <TouchableWithoutFeedback
             style={styles.buttons.container}

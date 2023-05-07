@@ -28,4 +28,15 @@ export default StyleSheet.create({
     marginTop: 5,
     opacity: 0.8,
   },
+  subButtonText: {
+    fontSize: 18,
+    fontWeight: '600',
+    textAlign: 'center',
+    color: 'white',
+    paddingTop: 20,
+    fontFamily: 'PressStart2P-Regular',
+    textShadowColor: 'black',
+    textShadowOffset: {width: 2, height: 1},
+    textShadowRadius: 2,
+  },
 });
