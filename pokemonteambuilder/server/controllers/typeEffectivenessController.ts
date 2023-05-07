@@ -1,15 +1,15 @@
 const knex = require('../db.ts');
 
 exports.postTypeEffectiveness = async (req, res) => {
-  const result = {};
   try {
     const {name} = req.body;
     const pokemon = await knex('pokemon')
       .where({name})
       .select('type_1', 'type_2');
-
     if (!pokemon.length) {
-      throw new Error(`Pokemon with name "${name}" not found`);
+      return res
+        .status(404)
+        .json({error: `Pokemon with name "${name}" not found`});
     }
 
     const types = Object.values(pokemon[0]);
@@ -47,6 +47,7 @@ exports.postTypeEffectiveness = async (req, res) => {
       types.map(fetchTypeEffectiveness),
     );
 
+    const result = {};
     allTypes.forEach(typeObj => {
       const type = typeObj.type;
       result[type] = effectivenessList.reduce(
@@ -55,8 +56,9 @@ exports.postTypeEffectiveness = async (req, res) => {
       );
     });
 
-    return res.json(result);
+    res.status(200).json(result);
   } catch (error) {
-    res.sendStatus(500);
+    console.error(error);
+    res.status(500).json({error: 'Internal server error'});
   }
 };
