@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 15,
+    marginTop: 10,
     shadowColor: '#000',
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -12,6 +12,7 @@ export default StyleSheet.create({
       height: 3,
     },
     elevation: 4,
+    paddingBottom: 5,
   },
   input: {
     height: 40,

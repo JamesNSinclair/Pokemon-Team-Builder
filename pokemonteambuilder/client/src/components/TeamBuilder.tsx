@@ -28,7 +28,7 @@ export const TeamBuilder = () => {
   }, []);
 
   return pokemon.length > 0 ? (
-    <ScrollView style={{marginTop: 15}}>
+    <ScrollView style={{paddingTop: 15}}>
       <TeamPicker position={1} pokemon={pokemon} />
       <TeamPicker position={2} pokemon={pokemon} />
       <TeamPicker position={3} pokemon={pokemon} />

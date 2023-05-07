@@ -13,7 +13,8 @@ export const TeamBuilderBase = () => {
   const handleProceedBtn = () => {
     navigation.navigate('TeamReview');
   };
-  const handleLoadSaveTeamBtn = () => {
+  const myTeams = useSelector((state: any) => state.myTeams);
+  const handleManageTeamsBtn = () => {
     navigation.navigate('SavedTeams');
   };
   return (
@@ -23,11 +24,10 @@ export const TeamBuilderBase = () => {
       <SafeAreaView>
         <Text style={styles.builderBase.title}>Pokemon Team Builder</Text>
         <TeamBuilder />
-        <TouchableWithoutFeedback onPress={handleLoadSaveTeamBtn}>
-          <Text style={styles.builderBase.subButtonText}>
-            Load Team/Save Team
-          </Text>
+        <TouchableWithoutFeedback onPress={handleManageTeamsBtn}>
+          <Text style={styles.builderBase.subButtonText}>Manage Teams</Text>
         </TouchableWithoutFeedback>
+
         {userTeam.length > 0 && (
           <TouchableWithoutFeedback
             style={styles.buttons.container}
