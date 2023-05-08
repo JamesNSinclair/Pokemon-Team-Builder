@@ -14,6 +14,7 @@ interface IProps {
 export const MyTeam = ({fullRow, pokeId, pokemonBackgroundColor}: IProps) => {
   const pokemonSprite = getPokemonSpritePath(pokeId);
   const handlePress = () => {};
+  console.log('fullRow', pokeId);
   return (
     <TouchableWithoutFeedback
       onPress={handlePress}

@@ -44,6 +44,27 @@ const button = StyleSheet.create({
     fontWeight: '700',
     color: 'rgba(41, 50, 60, 0.9)',
   },
+  editBtnsContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  cancelBtnContainer: {
+    backgroundColor: '#DCDCDC',
+    borderRadius: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    minWidth: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 10,
+  },
+  cancelBtnText: {
+    color: '#333',
+    fontSize: 16,
+    fontWeight: '500',
+  },
 });
 
 export default button;

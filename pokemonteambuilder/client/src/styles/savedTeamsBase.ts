@@ -38,4 +38,20 @@ export default StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
   },
+  teamNameInput: {
+    fontSize: 18,
+    fontWeight: '500',
+    flex: 1,
+    marginRight: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  errorText: {
+    paddingTop: 35,
+    fontFamily: 'PressStart2P-Regular',
+    fontSize: 32,
+    textAlign: 'center',
+  },
 });
