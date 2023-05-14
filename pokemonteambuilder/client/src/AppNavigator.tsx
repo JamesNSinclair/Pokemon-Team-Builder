@@ -1,3 +1,4 @@
+import {LoginScreenBase} from './pages/LoginScreenBase';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {SavedTeamsBase} from './pages/SavedTeamsBase';
@@ -10,7 +11,7 @@ const Stack = createNativeStackNavigator();
 export const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TeamBuilder">
+      <Stack.Navigator initialRouteName="LoginScreen">
         <Stack.Screen
           name="TeamBuilder"
           component={TeamBuilderBase}
@@ -24,6 +25,11 @@ export const AppNavigator = () => {
         <Stack.Screen
           name="SavedTeams"
           component={SavedTeamsBase}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreenBase}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

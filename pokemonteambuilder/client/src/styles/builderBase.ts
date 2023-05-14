@@ -6,6 +6,12 @@ export default StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
   },
+  loginBackground: {
+    paddingHorizontal: 35,
+    flex: 1,
+    justifyContent: 'space-between',
+    resizeMode: 'cover',
+  },
   title: {
     paddingTop: 60,
     fontSize: 30,
