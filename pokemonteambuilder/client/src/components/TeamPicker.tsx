@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import {fetchPokemonTypeEffectiveness} from '../services/api';
+import {getTypeStyle} from '../types/typeColours';
 import styles from '../styles/index';
 import {updateTeamData} from '../state/slices/teamSlice';
 import {useDispatch} from 'react-redux';
@@ -90,11 +91,19 @@ export const TeamPicker = ({
                 <Text
                   style={
                     p.name === selectedPokemon
-                      ? styles.teamPicker.selectedSuggestionText
+                      ? [styles.teamPicker.selectedSuggestionText]
                       : null
                   }>
                   {p.name}
                 </Text>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={getTypeStyle(p.type_1)}>{p.type_1}</Text>
+                  {p.type_2 && (
+                    <Text>
+                      / <Text style={getTypeStyle(p.type_2)}>{p.type_2}</Text>
+                    </Text>
+                  )}
+                </View>
               </TouchableOpacity>
             ))}
           </ScrollView>

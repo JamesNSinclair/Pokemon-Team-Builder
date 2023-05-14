@@ -9,7 +9,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     right: 10,
-    marginTop: 15,
     marginLeft: 20,
   },
   fullRow: {
@@ -20,7 +19,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     right: 10,
-    marginTop: 15,
+    marginTop: 5,
     marginLeft: 20,
   },
   fullRowSprites: {

@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-interface TypeEffectiveness {
+export interface TypeEffectiveness {
   [key: string]: number;
 }
 interface Pokemon {
@@ -45,6 +45,12 @@ const teamSlice = createSlice({
         });
       }
     },
+    loadPokemonTeam: (state, action) => {
+      console.log('action.payload', action.payload);
+      console.log('state', state);
+      const pokemonTeam = action.payload;
+      return pokemonTeam;
+    },
     updatePokemonBackgrounds: (state, action) => {
       const type = action.payload;
       state.forEach(pokemon => {
@@ -64,6 +70,7 @@ const teamSlice = createSlice({
   },
 });
 
-export const {updateTeamData, updatePokemonBackgrounds} = teamSlice.actions;
+export const {updateTeamData, updatePokemonBackgrounds, loadPokemonTeam} =
+  teamSlice.actions;
 
 export default teamSlice.reducer;

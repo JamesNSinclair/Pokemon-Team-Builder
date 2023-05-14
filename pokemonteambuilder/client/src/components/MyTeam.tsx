@@ -9,15 +9,17 @@ interface IProps {
   pokeId: number;
   pokemonBackgroundColor: string;
   fullRow?: boolean;
+  handlePressTeam?: () => void;
 }
 
 export const MyTeam = ({fullRow, pokeId, pokemonBackgroundColor}: IProps) => {
-  const pokemonSprite = getPokemonSpritePath(pokeId);
-  const handlePress = () => {};
+  const pokemonSprite =
+    getPokemonSpritePath(pokeId) ||
+    require('../../src/assets/images/pokemon-sprites/0.png');
+
   console.log('fullRow', pokeId);
   return (
     <TouchableWithoutFeedback
-      onPress={handlePress}
       style={[
         styles.myTeam.container,
         {backgroundColor: pokemonBackgroundColor},

@@ -17,11 +17,11 @@ import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
-interface TypeEffectiveness {
+export interface TypeEffectiveness {
   [key: string]: number;
 }
 
-interface Pokemon {
+export interface Pokemon {
   id: number;
   name: string;
   position: number;

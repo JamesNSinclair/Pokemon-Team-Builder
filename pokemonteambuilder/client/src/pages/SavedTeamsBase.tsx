@@ -12,15 +12,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import {CurrentTeam} from '../components/CurrentTeam';
 import LinearGradient from 'react-native-linear-gradient';
 import {MyTeam} from '../components/MyTeam';
+import {Pokemon} from './TeamReviewBase';
+import {PreviousTeam} from '../components/PreviousTeam';
+import {Team} from '../state/slices/manageTeamsSlice';
 import styles from '../styles';
 import {updatePokemonBackgrounds} from '../state/slices/teamSlice';
 import {useNavigation} from '@react-navigation/native';
-
-interface Pokemon {
-  id: number;
-  name: string;
-  position: number;
-}
 
 const GradientBackground = () => {
   return (
@@ -51,9 +48,8 @@ export const SavedTeamsBase = () => {
 
   const myTeams = useSelector((state: any) => state.manageTeams);
   const userTeam = useSelector((state: any) => state.team);
-
   return (
-    <View style={{flex: 1, height: '100%'}}>
+    <View style={styles.savedTeamsBase.baseContainer}>
       <GradientBackground />
       <SafeAreaView style={styles.savedTeamsBase.container}>
         <View style={[styles.reviewBase.topView]}>
@@ -78,28 +74,41 @@ export const SavedTeamsBase = () => {
             setCurrentTeamName={setCurrentTeamName}
           />
         )}
-        {myTeams && myTeams.length > 0 && (
-          <>
-            <Text style={styles.savedTeamsBase.subtitle}>My Saved Teams:</Text>
-            {myTeams.map((t: any) => {
+      </SafeAreaView>
+
+      {myTeams && myTeams.length > 0 && (
+        <>
+          <Text style={styles.savedTeamsBase.pastTeamTitles}>
+            My Saved Teams:
+          </Text>
+
+          <ScrollView
+            contentContainerStyle={{flexGrow: 1}}
+            style={styles.savedTeamsBase.scrollViewContainer}>
+            {myTeams.map((t: Team, index: number) => {
               return (
-                <View key={t.id} style={styles.savedTeamsBase.teamContainer}>
-                  {t.team.map((p: Pokemon) => {
-                    return (
-                      <MyTeam
-                        key={p.id}
-                        pokemonBackgroundColor={'white'}
-                        pokeId={p.id}
-                        fullRow
-                      />
-                    );
-                  })}
+                <View
+                  style={[
+                    styles.savedTeamsBase.previousTeamContainer,
+                    {
+                      backgroundColor:
+                        index % 2 === 0
+                          ? 'rgba(183, 201, 197, 0.3)'
+                          : 'rgba(239, 233, 234, 0.15)',
+                    },
+                  ]}>
+                  <PreviousTeam
+                    key={index}
+                    previousTeam={t}
+                    index={index}
+                    setCurrentTeamName={setCurrentTeamName}
+                  />
                 </View>
               );
             })}
-          </>
-        )}
-      </SafeAreaView>
+          </ScrollView>
+        </>
+      )}
     </View>
   );
 };

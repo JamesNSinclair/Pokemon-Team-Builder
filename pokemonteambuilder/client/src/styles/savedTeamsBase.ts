@@ -1,16 +1,26 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    height: '100%',
-    marginHorizontal: 40,
+  baseContainer: {
     flex: 1,
-    resizeMode: 'cover',
+    height: '100%',
+  },
+  container: {
+    marginHorizontal: 40,
   },
   teamContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%',
+    paddingBottom: 15,
+  },
+  pastTeamsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    right: 10,
+    width: '105%',
+    marginVertical: 10,
+    alignItems: 'center',
   },
   header: {
     paddingTop: 25,
@@ -19,17 +29,48 @@ export default StyleSheet.create({
     fontWeight: '400',
     fontFamily: 'PressStart2P-Regular',
   },
+  pastTeamTitles: {
+    paddingTop: 25,
+    fontSize: 14,
+    color: 'rgba(41, 50, 60, 0.9)',
+    fontWeight: '600',
+    fontFamily: 'PressStart2P-Regular',
+    paddingBottom: 10,
+    marginLeft: 50,
+  },
+  previousTeamLoadBtn: {
+    backgroundColor: 'cyan',
+    paddingVertical: 4,
+    marginTop: 2,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  previousTeamDeleteText: {
+    color: 'white',
+  },
+  previousTeamDeleteBtn: {
+    backgroundColor: 'maroon',
+    paddingVertical: 4,
+    marginTop: 2,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+  },
   subtitle: {
     fontSize: 15,
     color: 'rgba(41, 50, 60, 0.9)',
-    fontWeight: '900',
+    fontWeight: '800',
   },
   teamName: {
     paddingLeft: 5,
     fontSize: 15,
-    color: 'rgba(41, 50, 60, 0.9)',
     fontWeight: '500',
+    color: 'black',
+    placeholderTextColor: 'black',
     fontStyle: 'italic',
+    maxWidth: 140,
+    flexWrap: 'wrap',
+    flexShrink: 1,
   },
   currentTeamContainer: {
     paddingTop: 15,
@@ -53,5 +94,26 @@ export default StyleSheet.create({
     fontFamily: 'PressStart2P-Regular',
     fontSize: 32,
     textAlign: 'center',
+  },
+  previousTeamName: {
+    fontSize: 15,
+    color: 'rgba(41, 50, 60, 0.9)',
+    fontWeight: '600',
+    fontStyle: 'italic',
+  },
+  previousTeamContainer: {
+    width: '100%',
+    paddingLeft: 50,
+    paddingRight: 40,
+  },
+  previousTeamBaseContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 10,
+  },
+  scrollViewContainer: {
+    flex: 1,
+    paddingTop: 10,
   },
 });

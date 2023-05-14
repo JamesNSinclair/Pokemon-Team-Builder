@@ -29,10 +29,15 @@ export default StyleSheet.create({
   suggestions: {
     maxHeight: 200,
   },
+  suggestionText: {
+    flexDirection: 'row',
+  },
   suggestionItem: {
     padding: 10,
     backgroundColor: '#f8f8f8',
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     borderColor: '#eee',
   },
   selectedSuggestionItem: {
